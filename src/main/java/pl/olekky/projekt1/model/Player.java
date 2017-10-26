@@ -5,8 +5,8 @@ public class Player {
 	private int id;
 	private String nickname;
 	private int gold;
+	public Player() {};
 	public Player(int id, String nickname, int gold) {
-		super();
 		this.id = id;
 		this.nickname = nickname;
 		this.gold = gold;
@@ -26,13 +26,10 @@ public class Player {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public float getGold() {
+	public int getGold() {
 		return gold;
 	}
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
-	
-	
-	
 }
