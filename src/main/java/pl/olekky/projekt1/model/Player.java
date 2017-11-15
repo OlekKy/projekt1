@@ -1,15 +1,24 @@
 package pl.olekky.projekt1.model;
 
+import java.util.List;
+
 public class Player {
 	
 	private int id;
 	private String nickname;
 	private int gold;
+	private Integer x;
+	private Integer y;
+	
+	private List<Item> items;
+	
 	public Player() {};
-	public Player(int id, String nickname, int gold) {
+	public Player(int id, String nickname, int gold, Integer x, Integer y) {
 		this.id = id;
 		this.nickname = nickname;
 		this.gold = gold;
+		this.x = x;
+		this.y =y;
 	}
 	
 	
@@ -32,4 +41,23 @@ public class Player {
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
+	public List<Item> getItems() {
+		return items;
+	}
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+	public Integer getX() {
+		return x;
+	}
+	public void setX(Integer x) {
+		this.x = x;
+	}
+	public Integer getY() {
+		return y;
+	}
+	public void setY(Integer y) {
+		this.y = y;
+	}
+
 }
