@@ -3,7 +3,9 @@ package pl.olekky.projekt1.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
+import pl.olekky.projekt1.model.Field;
 import pl.olekky.projekt1.model.Player;
+import pl.olekky.projekt1.repository.FieldRepository;
 import pl.olekky.projekt1.repository.PlayerRepository;
 import pl.olekky.projekt1.repository.exception.DatabaseException;
 
@@ -30,7 +32,8 @@ public class HelloController {
 
 	@Autowired
 	PlayerRepository playerRepository;
-	
+	@Autowired
+	FieldRepository fieldRepository;
 
 	
 	@GetMapping("/player")
@@ -40,7 +43,15 @@ public class HelloController {
 		playerList = playerRepository.getPlayers();
 		return playerList;
 	}
-
+	
+	@GetMapping("/field")
+	public List<Field> getFields() throws DatabaseException {
+		// playerRepository.intializedPlayerTable();
+		List<Field> fieldList = new ArrayList<Field>();
+		fieldList = fieldRepository.getFields();
+		return fieldList;
+	}
+	
 	@GetMapping("/player/{id}")
 	public ResponseEntity<Player> getPlayer(@PathVariable int id) throws DatabaseException {
 		Player player = playerRepository.getPlayer(id);
